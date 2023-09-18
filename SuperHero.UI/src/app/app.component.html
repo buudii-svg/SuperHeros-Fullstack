@@ -1,0 +1,27 @@
+<table class="table table-dark table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Place</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let hero of heroes">
+      <th scope="row">{{ hero.name }}</th>
+      <td>{{ hero.firstName }}</td>
+      <td>{{ hero.lastName }}</td>
+      <td>{{ hero.place }}</td>
+      <td><button (click)="editHero(hero)">Edit</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<button (click)="initNewHero()">Create New Hero</button>
+
+<app-edit-hero
+  [hero]="heroToEdit"
+  (updateHeroEvent)="updateHeroList($event)"
+></app-edit-hero>
